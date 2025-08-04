@@ -1,0 +1,12 @@
+Two Speed ViT Uni Testset Samples Evaluation
+
+Corrected
+Threshold          : 0.3991086781024933
+ROC-AUC            : 0.9871
+Accuracy           : 0.9533
+Precision          : 0.9882
+Recall             : 0.9176
+F1-score           : 0.9516
+EER                : 0.0604
+FAR                : 0.0824
+FRR                : 0.0110
