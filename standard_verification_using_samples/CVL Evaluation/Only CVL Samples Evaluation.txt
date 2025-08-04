@@ -1,0 +1,34 @@
+Only CVL Samples Evaluation
+
+Threshold used     : eer
+Threshold value    : 0.737
+ROC-AUC            : 0.9810
+Accuracy           : 0.9241
+Precision          : 0.9580
+Recall             : 0.8872
+F1-score           : 0.9212
+EER                : 0.0720
+FAR                : 0.1128
+FRR                : 0.0389
+
+Threshold used     : f1
+Threshold value    : 0.725
+ROC-AUC            : 0.9810
+Accuracy           : 0.9261
+Precision          : 0.9582
+Recall             : 0.8911
+F1-score           : 0.9234
+EER                : 0.0720
+FAR                : 0.1089
+FRR                : 0.0389
+
+Threshold used     : bf
+Threshold value    : 0.759
+ROC-AUC            : 0.9810
+Accuracy           : 0.9202
+Precision          : 0.9635
+Recall             : 0.8735
+F1-score           : 0.9163
+EER                : 0.0720
+FAR                : 0.1265
+FRR                : 0.0331

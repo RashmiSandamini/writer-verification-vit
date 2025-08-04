@@ -1,0 +1,12 @@
+ViT Only Uni Testset Samples Evaluation
+
+Threshold used     : eer
+Threshold value    : 0.737
+ROC-AUC            : 0.9347
+Accuracy           : 0.8689
+Precision          : 0.8915
+Recall             : 0.8400
+F1-score           : 0.8650
+EER                : 0.1311
+FAR                : 0.1600
+FRR                : 0.1022

@@ -1,0 +1,13 @@
+Only IAM Samples Evaluation
+
+
+Threshold used     : eer
+Threshold value    : 0.737
+ROC-AUC            : 0.9764
+Accuracy           : 0.9069
+Precision          : 0.9714
+Recall             : 0.8385
+F1-score           : 0.9001
+EER                : 0.0722
+FAR                : 0.1615
+FRR                : 0.0247
