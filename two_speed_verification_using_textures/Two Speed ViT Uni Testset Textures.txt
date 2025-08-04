@@ -1,0 +1,11 @@
+Two Speed ViT Uni Testset Textures Evaluation
+
+Threshold          : 0.39910868
+ROC-AUC            : 0.9556
+Accuracy           : 0.8933
+Precision          : 0.8856
+Recall             : 0.9033
+F1-score           : 0.8944
+EER                : 0.1050
+FAR		   : 0.0967
+FRR    		   : 0.1167
