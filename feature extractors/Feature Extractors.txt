@@ -1,0 +1,5 @@
+VGG16 - https://drive.google.com/file/d/1adZizf0V5DiL_ukDH8OVKld78pfgy0Dh/view?usp=sharing
+
+ResNet18 - https://drive.google.com/file/d/1MgKZFuNRmSbFpjhAnyTSBeSdLlitOM1G/view?usp=sharing
+
+ViT384 - https://drive.google.com/file/d/1ASQuT-LU5H1f_ydTrytQ-f5k8l-C7-yw/view?usp=sharing
