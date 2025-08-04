@@ -1,0 +1,28 @@
+ViT Only Uni Testset Textures Evaluation
+
+Threshold used     : eer
+Threshold value    : 0.737
+ROC-AUC            : 0.8883
+Accuracy           : 0.8021
+Precision          : 0.7693
+Recall             : 0.8629
+F1-score           : 0.8134
+EER                : 0.1906
+
+Threshold used     : f1
+Threshold value    : 0.725
+ROC-AUC            : 0.8883
+Accuracy           : 0.8010
+Precision          : 0.7649
+Recall             : 0.8691
+F1-score           : 0.8137
+EER                : 0.1906
+
+Threshold used     : bf
+Threshold value    : 0.759
+ROC-AUC            : 0.8883
+Accuracy           : 0.8041
+Precision          : 0.7784
+Recall             : 0.8504
+F1-score           : 0.8128
+EER                : 0.1906
