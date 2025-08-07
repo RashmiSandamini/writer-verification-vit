@@ -46,7 +46,7 @@ Each pair is processed by the Siamese network, the same architecture that was us
 The feedforward neural network consists of three fully connected layers with ReLU activations applied to the first two layers. The architecture is presented below. The final output is a single logit value representing the dissimilarity score between the two sets of handwriting samples. A sigmoid activation is applied during inference to obtain a probability score. This neural network was trained using the same writers that was used to finetune the feature extractors.
 
 <p align='center'>
-  <img src="assets/nn.png" alt="Feed forward neural network" width="600"/>
+  <img src="assets/nn.png" alt="Feed forward neural network" width="400"/>
 </p>
 
 ### 📊 Evaluation
