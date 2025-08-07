@@ -69,6 +69,8 @@ Each handwriting sample underwent preprocessing, which included rule line remova
 | two_speed_texture | Uses one texture representation from both normal-speed and fast-speed handwriting per writer. | 
 | two_speed_sample | Uses separate documents for normal and fast speeds, each represented by the average of 4 textures.|
 
+Note: Only the private dataset supports speed-level data.
+
 #### 📈 Results
 | Approach | Dataset | Feature Extractor | Accuracy | AUC | Precision | Recall | F1-score | EER | FAR | FRR |
 |----------|---------|-------------------|----------|-----|-----------|--------|----------|-----|-----|-----|
