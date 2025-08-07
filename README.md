@@ -8,11 +8,11 @@ This is my main contribution to the final year research project titled **Exam Ca
 This system verifies whether two handwriting samples originate from the same writer or not, even under variations such as writing speed.
 There are 2 modes supported in this system.
 - Standard mode verification - One sample per writer 
-- Two speed mode verification - Uses both normal and fast handwriting to handle intra-writer variability.
+- Two-speed mode verification - Uses both normal and fast handwriting to handle intra-writer variability.
 
 ### 🛠️ Key Features
 
-#### Texture-Based Representation
+#### Texture-based Representation
 Developed a pipeline to convert handwritten documents into compact texture images by minimizing irrelevant white spaces. This approach was inspired by prior works, *Writer Verification Using Texture-Based Features* by Hanusiak et al. and *Personal Identification Based on Handwriting* by Said et al.
 
 The input to this pipeline is a line-removed, binarized handwriting sample. First, lines are segmented using horizontal projection, and then words are segmented using vertical projection. The detected words are placed onto a new canvas while reducing gaps between lines and words. This results in a compact visual representation of the handwriting. Finally, the texture image is split into patches. The pipeline is illustrated below.
@@ -33,7 +33,7 @@ A projection head consisting of three dense layers was added, with output dimens
 ##### Standard Mode of Verification
 In the standard verification mode, the system is designed to operate under the constraint of having only one handwriting sample per writer. To enhance the robustness of verification during inference, from each handwriting sample, four textures are generated. Each texture is independently passed through the feature extractor and projection head to obtain a feature embedding, as described in the architecture shown above. These embeddings are then averaged to form a single representative embedding for that document. The final verification decision is made by computing the Euclidean distance between the averaged embeddings of the two samples. This distance score is then thresholded to determine whether the samples originate from the same writer.
 
-##### Two Speed Mode of Verification
+##### Two-speed Mode of Verification
 In the two-speed mode, there should be two handwriting samples per writer, one written at a normal speed and the other at a fast speed, which results in four documents per verification instance. Similar to the standard verification mode, four textures are generated per document, feature embeddings are computed, and the embeddings are averaged to produce a single representation for each document. From these averaged embeddings, six pairwise comparisons are made:
 - Two intra-writer comparisons - normal vs. fast samples from the same writer.
 - Four inter-writer comparisons - cross comparisons between known and questioned samples across speeds.
