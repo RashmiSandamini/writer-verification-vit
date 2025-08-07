@@ -1,17 +1,18 @@
-## ✍️ Quick Writer Verification with Automatic Feature Extraction
+## ✍️ Texture-Driven Siamese Networks with Vision Transformers for Offline Writer	Verification 
 
-This repository contains my main contribution to the final year research project titled **Exam Candidate Verification Through Handwritten Artifacts**. 
-I was responsible for designing and developing Module 2 – Quick Writer Verification with Automatic Feature Extraction, which performs text-independent handwriting verification using deep learning techniques and texture-based representations. 
+This repository presents a writer verification system that compares handwritten samples to determine if they originate from the same writer. The verification process relies on texture images generated from handwritten documents, where white spaces between lines and words are minimized to better capture stylistic characteristics. The system operates in a text-independent, offline setting and supports binary classification.
 
-### 🔧 Module Overview
-This module verifies whether two handwriting samples originate from the same writer or not, even under variations such as writing speed.
-There are 2 modes supported in this module.
+This is my main contribution to the final year research project titled **Exam Candidate Verification Through Handwritten Artifacts**, available [here](https://github.com/hasathcharu/exam-candidate-verification). I was responsible for designing and developing Module 2 – Quick Writer Verification with Automatic Feature Extraction.
+
+### 🔧 System Overview
+This system verifies whether two handwriting samples originate from the same writer or not, even under variations such as writing speed.
+There are 2 modes supported in this system.
 - Standard mode verification - One sample per writer 
-- Two speed mode verification - Uses both normal and fast handwriting to handle intra-writer variability.
+- Two-speed mode verification - Uses both normal and fast handwriting to handle intra-writer variability.
 
 ### 🛠️ Key Features
 
-#### Texture-Based Representation
+#### Texture-based Representation
 Developed a pipeline to convert handwritten documents into compact texture images by minimizing irrelevant white spaces. This approach was inspired by prior works, *Writer Verification Using Texture-Based Features* by Hanusiak et al. and *Personal Identification Based on Handwriting* by Said et al.
 
 The input to this pipeline is a line-removed, binarized handwriting sample. First, lines are segmented using horizontal projection, and then words are segmented using vertical projection. The detected words are placed onto a new canvas while reducing gaps between lines and words. This results in a compact visual representation of the handwriting. Finally, the texture image is split into patches. The pipeline is illustrated below.
@@ -32,10 +33,10 @@ A projection head consisting of three dense layers was added, with output dimens
 ##### Standard Mode of Verification
 In the standard verification mode, the system is designed to operate under the constraint of having only one handwriting sample per writer. To enhance the robustness of verification during inference, from each handwriting sample, four textures are generated. Each texture is independently passed through the feature extractor and projection head to obtain a feature embedding, as described in the architecture shown above. These embeddings are then averaged to form a single representative embedding for that document. The final verification decision is made by computing the Euclidean distance between the averaged embeddings of the two samples. This distance score is then thresholded to determine whether the samples originate from the same writer.
 
-##### Two Speed Mode of Verification
+##### Two-speed Mode of Verification
 In the two-speed mode, there should be two handwriting samples per writer, one written at a normal speed and the other at a fast speed, which results in four documents per verification instance. Similar to the standard verification mode, four textures are generated per document, feature embeddings are computed, and the embeddings are averaged to produce a single representation for each document. From these averaged embeddings, six pairwise comparisons are made:
 - Two intra-writer comparisons - normal vs. fast samples from the same writer.
-- Four inter-writercomparisons - cross comparisons between known and questioned samples across speeds.
+- Four inter-writer comparisons - cross comparisons between known and questioned samples across speeds.
 
 Each pair is processed by the Siamese network, the same architecture that was used in standard mode of verification to produce a dissimilarity score. These six scores are then passed into a feedforward neural network which produces the final verification decision. This allows the model to exploit variability patterns rather than relying solely on static visual features. The architecture of this mode is presented below.
 
@@ -43,4 +44,4 @@ Each pair is processed by the Siamese network, the same architecture that was us
   <img src="assets/two speed verification architecture.png" alt="Two Speed Verification Architecture" width="600"/>
 </p>
 
-The feedforward neural network consists of of three fully connected layers with ReLU activations applied to the first two layers. The architecture is as follows,an input layer of size 6 (corresponding to the six pairwise distances), a hidden layer of size 4, a second hidden layer of size 2, and a final output layer of size 1. The final output is a single logit value representing the dissimilarity score between the two sets of handwriting samples. A sigmoid activation is applied during inference to obtain a probability score. This neural network was trained using the same writers that was used to finetune the feature extractors.
+The feedforward neural network consists of three fully connected layers with ReLU activations applied to the first two layers. The architecture is as follows, an input layer of size 6 (corresponding to the six pairwise distances), a hidden layer of size 4, a second hidden layer of size 2, and a final output layer of size 1. The final output is a single logit value representing the dissimilarity score between the two sets of handwriting samples. A sigmoid activation is applied during inference to obtain a probability score. This neural network was trained using the same writers that was used to finetune the feature extractors.
